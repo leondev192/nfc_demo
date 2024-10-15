@@ -77,7 +77,12 @@ class _AddCardScreenState extends State<AddCardScreen> {
                 ),
               )
             else
-              const Text("Waiting to scan NFC..."),
+              Center(
+                child: Text(
+                  "Waiting to scan NFC...",
+                  textAlign: TextAlign.center,
+                ),
+              ),
             const SizedBox(height: 20),
             if (_isNfcScanned)
               Column(

@@ -40,12 +40,26 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void _navigateToWriteNfc() {
+    Navigator.pushNamed(context, '/writeNfc').then((result) {
+      if (result == true) {
+        _loadCards();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('NFC Cards'),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.nfc),
+            onPressed: _navigateToWriteNfc, // Thêm nút để ghi NFC
+          ),
+        ],
       ),
       body: cards.isEmpty
           ? const Center(child: Text('No cards stored'))
